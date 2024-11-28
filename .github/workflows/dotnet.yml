@@ -23,7 +23,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Maui sdk
-      run: dotnet install maui
+      run: dotnet workload install maui --ignore-failed-sources
+    - name: new proj
+      run: dotnet new maui -n "Simple"
     - name: Build
       run: dotnet build --no-restore
     - name: Test
